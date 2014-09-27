@@ -1,5 +1,5 @@
 ## Pre Requirements
-You need to have node.js and npm installed in you system.
+You need to have node.js, npm and bower installed in you system.
 
 ## Starting the Application
 Navigate to `src` directory and run the following commands to make everything available
