@@ -2,7 +2,7 @@ var MainTitleController = function($scope) {
     $scope.title = "Hello Bower, angularjs and other cool stuff...";
 }
 
-var MainController = function($scope) {
+var MainController = function($scope, $http) {
     
     var person = {
         firstName: "Tugberk",
@@ -10,5 +10,11 @@ var MainController = function($scope) {
         imageSrc: "https://pbs.twimg.com/profile_images/418363635270823936/H_X0pAlb.jpeg"
     };
     
-    $scope.me = person;
+    $http.get('/home/user').then(function(response) {
+        $scope.me = {
+            firstName: response.data.FirstName,
+            lastName: response.data.LastName,
+            imageSrc: response.data.ImageSrc
+        };
+    });
 }
