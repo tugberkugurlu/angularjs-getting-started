@@ -26,7 +26,9 @@ gulp.task('scripts', function() {
         'bower_components/angular/*.js', 
         'bower_components/angular/*.map',
         'bower_components/underscore/*.js',
-        'bower_components/underscore/*.map'
+        'bower_components/underscore/*.map',
+       
+        'client/js/*'
        ]
    ).pipe(gulp.dest('assets/js'));
 });

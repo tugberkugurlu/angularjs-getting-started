@@ -3,11 +3,18 @@
     <head>
         <title>Hello Bower, angularjs and other cool stuff...</title>
         <link rel="stylesheet" href="assets/css/bootstrap.css" />
+        <script src="assets/js/angular.js"></script>
+        <script src="assets/js/underscore.js"></script>
+        <script src="assets/js/jquery.js"></script>
+        <script src="assets/js/bootstrap.js"></script>
+        <script src="client/js/script.js"></script>
     </head>
     
     <body>
         <div class="col-md-12" ng-app>
-            <h2>Hello Bower, Angular and other cool stuff...</h2>
+            <div ng-controller="MainTitleController">
+                <h2>{{ title }}</h2>
+            </div>
             <div class="row">
                 <div class="col-md-8">
                     <hr />
@@ -17,10 +24,5 @@
                 </div>
             </div>
         </div>
-        
-        <script src="assets/js/angular.js"></script>
-        <script src="assets/js/underscore.js"></script>
-        <script src="assets/js/jquery.js"></script>
-        <script src="assets/js/bootstrap.js"></script>
     </body>
 </html>
