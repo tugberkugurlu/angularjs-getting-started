@@ -17,16 +17,37 @@
                 <h2>{{ title }}</h2>
             </div>
             <div class="row">
-                <div class="col-md-8">
-                    <hr />
+                <div class="col-md-8" ng-controller="GitHubViewerController">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div>
+                                <img ng-src="{{ user.avatar_url }}" style="weight: 50px; height: 50px;" />
+                                <span>{{ user.name }}</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4" ng-show="repoSortOrder">
+                            <select ng-model="repoSortOrder" class="form-control">
+                                <option value="name">Name</option>
+                                <option value="-stargazers_count">Stars</option>
+                                <option value="+language">Language</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div ng-include="'templates/repos-list.html'" ng-show="repos"></div>
+                    
                 </div>
+                
                 <div class="col-md-4" ng-controller="MainController">
                     <div ng-show="error" class="alert alert-danger">
                         <span>{{ error }}</span>
                     </div>
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-10">
                             <input type="text" placeholder="Search for a user..." class="form-control" ng-model="nameFilter" />
+                        </div>
+                        <div class="col-md-2">
+                            <a class="btn btn-default" href="#"><span class="glyphicon glyphicon-plus span"></span></a>
                         </div>
                     </div>
                     <ul class="user-list">

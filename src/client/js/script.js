@@ -29,8 +29,21 @@
         $scope.title = "Hello Bower, angularjs and other cool stuff...";
     }
     
+    var GitHubViewerController = function($scope, $http) {
+        
+        $http.get('https://api.github.com/users/tugberkugurlu')
+            .then(function(response) {
+                $scope.user = response.data;
+                $http.get(response.data.repos_url).then(function(reposResponse) {
+                    $scope.repos = reposResponse.data;
+                    $scope.repoSortOrder = "-stargazers_count";
+                });
+            })
+    }
+    
     angular.module('mainApp', [])
         .controller('MainTitleController', ['$scope', MainTitleController])
-        .controller('MainController', ['$scope', '$http', MainController]);
+        .controller('MainController', ['$scope', '$http', MainController])
+        .controller('GitHubViewerController', ['$scope', '$http', GitHubViewerController]);
     
 }());

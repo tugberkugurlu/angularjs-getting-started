@@ -1,0 +1,13 @@
+<table class="table repos-list">
+    <tr>
+        <th>Name</th>
+        <th>Stars</th>
+        <th>Language</th>
+    </tr>
+    <!-- I could also use the filter like: repo in repos | orderBy:'-stargazers_count' -->
+    <tr ng-repeat="repo in repos | orderBy:repoSortOrder">
+        <td>{{ repo.name }}</td>
+        <td>{{ repo.stargazers_count | number }}</td>
+        <td>{{ repo.language }}</td>
+    </tr>
+</table>

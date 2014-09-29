@@ -5,17 +5,23 @@ var gulp = require('gulp'),
     del = require('del');
 
 gulp.task('default', ['clean'], function() {
-    gulp.start('styles', 'scripts');
+    gulp.start('styles', 'scripts', 'fonts');
 });
 
 gulp.task('clean', function(cb) {
-    del(['assets/css', 'assets/js', 'assets/img'], cb)
+    del(['assets/css', 'assets/js', 'assets/img', 'assets/fonts'], cb)
 });
 
 gulp.task('styles', function() {
     
    return gulp.src('bower_components/bootstrap/dist/css/*')
               .pipe(gulp.dest('assets/css'));
+});
+
+gulp.task('fonts', function() {
+    
+   return gulp.src('bower_components/bootstrap/dist/fonts/*')
+              .pipe(gulp.dest('assets/fonts'));
 });
 
 gulp.task('scripts', function() {
