@@ -11,7 +11,7 @@
     </head>
     
     <body>
-        <div class="col-md-12" ng-app>
+        <div class="col-md-12" ng-app="mainApp">
             <div ng-controller="MainTitleController">
                 <h2>{{ title }}</h2>
             </div>
@@ -20,6 +20,9 @@
                     <hr />
                 </div>
                 <div class="col-md-4" ng-controller="MainController">
+                    <div ng-show="error" class="alert alert-danger">
+                        <span>{{ error }}</span>
+                    </div>
                     <div>
                         <img ng-src="{{ me.imageSrc }}" style="weight: 50px; height: 50px;" />
                         <span>{{ me.firstName }} {{ me.lastName }}</span>

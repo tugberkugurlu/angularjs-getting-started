@@ -18,7 +18,7 @@ namespace HelloAngularJs
 
             app.UseMvc();
 
-            app.UseWelcomePage();
+            // app.UseWelcomePage();
         }       
     }
 }
