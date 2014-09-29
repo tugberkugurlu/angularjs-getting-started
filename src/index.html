@@ -24,8 +24,13 @@
                     <div ng-show="error" class="alert alert-danger">
                         <span>{{ error }}</span>
                     </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="text" placeholder="Search for a user..." class="form-control" ng-model="nameFilter" />
+                        </div>
+                    </div>
                     <ul class="user-list">
-                        <li ng-repeat="user in users">
+                        <li ng-repeat="user in users | filter: nameFilter">
                             <img ng-src="{{ user.imageSrc }}" style="weight: 50px; height: 50px;" />
                             <span>{{ user.firstName }} {{ user.lastName }}</span>
                         </li>
