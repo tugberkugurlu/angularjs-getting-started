@@ -3,6 +3,7 @@
     <head>
         <title>Hello Bower, angularjs and other cool stuff...</title>
         <link rel="stylesheet" href="assets/css/bootstrap.css" />
+        <link rel="stylesheet" href="client/styles/main.css" />
         <script src="assets/js/angular.js"></script>
         <script src="assets/js/underscore.js"></script>
         <script src="assets/js/jquery.js"></script>
@@ -23,10 +24,12 @@
                     <div ng-show="error" class="alert alert-danger">
                         <span>{{ error }}</span>
                     </div>
-                    <div>
-                        <img ng-src="{{ me.imageSrc }}" style="weight: 50px; height: 50px;" />
-                        <span>{{ me.firstName }} {{ me.lastName }}</span>
-                    </div>
+                    <ul class="user-list">
+                        <li ng-repeat="user in users">
+                            <img ng-src="{{ user.imageSrc }}" style="weight: 50px; height: 50px;" />
+                            <span>{{ user.firstName }} {{ user.lastName }}</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>

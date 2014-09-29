@@ -8,14 +8,16 @@
             imageSrc: "https://pbs.twimg.com/profile_images/418363635270823936/H_X0pAlb.jpeg"
         };
 
-        $http.get('/home/user')
+        $http.get('/home/users')
             .then(function(response) {
 
-                    $scope.me = {
-                        firstName: response.data.FirstName,
-                        lastName: response.data.LastName,
-                        imageSrc: response.data.ImageSrc
-                    };
+                    $scope.users = _.map(response.data, function(user) {
+                        return {
+                            firstName: user.FirstName,
+                            lastName: user.LastName,
+                            imageSrc: user.ImageSrc
+                        };
+                    });
 
                 }, function(reason) { 
 

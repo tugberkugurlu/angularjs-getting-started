@@ -1,0 +1,13 @@
+.user-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.user-list li {
+    margin: 5px 0;
+}
+
+.user-list li:first-child {
+    margin: 0;
+}
