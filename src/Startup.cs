@@ -6,7 +6,7 @@ namespace HelloAngularJs
 {
     public class Startup
     {
-        public void Configure(IBuilder app)
+        public void Configure(IApplicationBuilder app)
         {
             app.UseFileServer();
             app.UseErrorPage();
@@ -16,9 +16,13 @@ namespace HelloAngularJs
                 services.AddMvc();
             });
 
-            app.UseMvc();
-
-            // app.UseWelcomePage();
+            app.UseMvc(routes => 
+            {
+                routes.MapRoute(
+                    "controllerActionRoute",
+                    "{controller}/{action}",
+                    new { controller = "Home", action = "Index" });
+            });
         }       
     }
 }
